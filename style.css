@@ -1,0 +1,161 @@
+/* Montserrat Regular */
+/* Licensed under SIL Open Font License */
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-style: normal;
+  src: url("Montserrat-Regular.woff2") format("woff2"), url("Montserrat-Regular.woff") format("woff");
+}
+.theme-light {
+  background-color: #F7F7FF;
+  color: #212227;
+}
+
+.theme-light input[type=text] {
+  border-bottom-color: #212227;
+}
+
+.theme-light button {
+  background-color: #dedeff;
+}
+
+.theme-light button:hover {
+  background-color: #c4c4ff;
+}
+
+.theme-dark {
+  background-color: #212227;
+  color: #F7F7FF;
+}
+
+.theme-dark input[type=text] {
+  border-bottom-color: #F7F7FF;
+}
+
+.theme-dark button {
+  background-color: #50525e;
+}
+
+.theme-dark button:hover {
+  background-color: #676a7a;
+}
+
+.code {
+  font-family: "Fira Mono";
+}
+
+.code .smart-pointer {
+  color: #507CF6;
+}
+
+.code .interior-mutability {
+  color: #FF1654;
+}
+
+.code .type {
+  color: #28AFB0;
+}
+
+a {
+  color: #28AFB0;
+}
+
+* {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+input, button {
+  border: none;
+}
+
+input[type=text] {
+  min-width: 1em;
+  border-bottom: 2px solid;
+  background-color: inherit;
+}
+
+button {
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+#title {
+  margin-top: 5vh;
+}
+
+#toggle-theme {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  margin-top: 8px;
+  margin-right: 8px;
+  font-size: small;
+  text-align: right;
+  cursor: pointer;
+}
+
+#final-type {
+  margin: 10vh auto;
+}
+
+#blinking_cursor {
+  animation: 1s step-end infinite alternate forwards blink;
+  cursor: default;
+  user-select: none;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.hidden-full {
+  display: none;
+}
+
+.hidden-animated {
+  transition-property: opacity visibility;
+  transition-duration: 0.1s;
+  transition-delay: 0 0.1s;
+}
+
+.large-text {
+  font-size: xx-large;
+}
+
+#answers {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: auto;
+  padding: 8px;
+  gap: 8px;
+}
+
+footer {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  margin: 8px;
+}
+
+/*# sourceMappingURL=style.css.map */
+
+/*# sourceMappingURL=style.css.map */
