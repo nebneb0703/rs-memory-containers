@@ -14,8 +14,9 @@
         <span id="toggle-theme" onclick="toggle_theme()">Toggle Theme</span>
         <h1 id="title" class="large-text">Rust Memory Containers</h1>
 
-        <p id="type-container" class="code large-text">
-            <span id="final-type"><span id="input" class="type" contenteditable="true" spellcheck="false">T</span></span><span id="blinking-cursor">_</span>
+        <p id="type-container">
+            <span id="final-type" class="code large-text"><span id="input" class="type" contenteditable="true" spellcheck="false">T</span></span><span id="blinking-cursor" class="code large-text">_</span>
+            <button id="copy" onclick="copy()">Copy!</button>
         </p>
 
         <script>document.getElementById("input").addEventListener("beforeinput", type_input, true);</script>

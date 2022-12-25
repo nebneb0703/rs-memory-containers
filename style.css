@@ -83,7 +83,7 @@ button {
 }
 
 #input {
-  min-width: 1em;
+  min-width: 1ch;
   border-bottom: 1px solid;
   background-color: inherit;
 }
@@ -119,6 +119,7 @@ button {
   flex-direction: row;
   margin: auto;
   width: fit-content;
+  position: relative;
 }
 
 #final-type {
@@ -133,6 +134,11 @@ button {
   cursor: default;
   -webkit-user-select: none;
   user-select: none;
+}
+
+#copy {
+  position: absolute;
+  right: -100px;
 }
 
 @keyframes blink {

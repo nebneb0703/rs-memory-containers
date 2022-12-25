@@ -269,14 +269,31 @@ function done() {
 }
 
 function type_input(e) {
+    // todo: fix pasting newlines
+    // todo: add some kind of character limit lol
+    // `AbstractSingletonProxyFactoryBeanBuilderObserverServletEventHandlerAsyncGenerator` amazing type thanks Spey
+
     switch(e.inputType) {
         case "insertLineBreak":
         case "insertParagraph":
             e.preventDefault();
         break;
 
-        default:
-            console.log(e);
-        break;
+        // default:
+        //     console.log(e);
+
+        //     if (e.dataTransfer) {
+        //         console.log(e.dataTransfer.getData("text/plain"));
+        //     }
+        // break;
     }
+}
+
+function copy() {
+    navigator.clipboard.writeText(
+        document.getElementById("final-type").textContent
+    ).then(() => {
+        document.getElementById("copy").innerText = "Copied!";
+        setTimeout(() => document.getElementById("copy").innerText = "Copy", 1500);
+    });
 }
