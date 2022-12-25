@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html class="theme-light">
     <head>
         <title>Rust Memory Containers</title>
@@ -10,13 +11,16 @@
     </head>
 
     <body>
-        <h1>Rust Memory Containers</h1>
+        <span id="toggle-theme" onclick="toggle_theme()">Toggle Theme</span>
+        <h1 id="title">Rust Memory Containers</h1>
 
         <p id="final-type" class="code">
-            <span class="smart-pointer">Arc</span>&lt;<span class="interior-mutability">Mutex</span>&lt;<input id="input" class="type" value="T" spellcheck="false" size="1">&gt;&gt;<span id="blinking_cursor">_</span>
+            <span class="smart-pointer">Arc</span>&lt;<span class="interior-mutability">Mutex</span>&lt;<input id="input" type="text" class="type" value="T" spellcheck="false" size="1">&gt;&gt;<span id="blinking_cursor">_</span>
         </p>
 
-        <h2 id="Question">Single or Multithreaded?</h2>
+        <input type="button" value="Let's get started!">
+
+        <h1 id="Question">Single or Multithreaded?</h1>
 
         <input type="button" value="Single">
     </body>

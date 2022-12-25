@@ -8,29 +8,56 @@
          url("Montserrat-Regular.woff") format("woff");
 }
 
-.theme-light {
-    $text-color: #212227;
+$light: #F7F7FF;
+$dark: #212227;
 
-    background-color: #F7F5FB;
+.theme-light {
+    $background-color: $light;
+    $text-color: $dark;
+
+    background-color: $background-color;
     color: $text-color;
 
-    input[type=text] {
-        border-bottom-color: $text-color;
+    input {
+        &[type=text] {
+            border-bottom-color: $text-color;
+        }
+
+        &[type=button] {
+            background-color: darken($background-color, 5%);
+
+            &:hover {
+                background-color: darken($background-color, 10%);
+            }
+        }
     }
 }
 
 .theme-dark {
-    $text-color: #F7F5FB;
+    $background-color: $dark;
+    $text-color: $light;
 
-    background-color: #212227;
+    background-color: $background-color;
     color: $text-color;
 
-    input[type=text] {
-        border-bottom-color: $text-color;
+    input{
+        &[type=text] {
+            border-bottom-color: $text-color;
+        }
+
+        &[type=button] {
+            background-color: lighten($background-color, 20%);
+
+            &:hover {
+                background-color: lighten($background-color, 30%);;
+            }
+        }
     }
 }
 
 .code {
+    font-family: "Fira Mono";
+
     .smart-pointer {
         color: #507CF6;
     }
@@ -49,18 +76,41 @@
     font-weight: 400;
     font-size: xx-large;
     text-align: center;
+    box-sizing: border-box;
 }
 
-.code {
-    font-family: "Fira Mono";
-}
-
-input[type=text] {
-    min-width: 1em;
-
+input {
     border: none;
-    border-bottom: 2px solid;
-    background-color: inherit;
+
+    &[type=text] {
+        min-width: 1em;
+
+        border-bottom: 2px solid;
+        background-color: inherit;
+    }
+
+    &[type=button] {
+        border-radius: 8px;
+        padding: 8px;
+        cursor: pointer;
+    }
+}
+
+#title {
+    margin-top: 5vh;
+}
+
+#toggle-theme {
+    position: absolute;
+    right: 8px;
+    margin-right: 8px;
+    font-size: small;
+    text-align: right;
+    cursor: pointer;
+}
+
+#final-type {
+    margin: 10vh auto;
 }
 
 #blinking_cursor {
