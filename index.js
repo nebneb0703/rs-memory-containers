@@ -185,6 +185,8 @@ function generate_question(q) {
     const answers_element = document.getElementById("answers");
     answers_element.replaceChildren([]);
 
+    // todo: add hints
+
     question.choices.forEach((answer, i) => {
         const button = document.createElement("button");
 
@@ -252,7 +254,15 @@ function done() {
         }
     }
 
-    console.log(smart_pointer + " " + interior_mut + " " + "T");
+    const final_type_element = document.getElementById("final-type");
+
+    const post = "&gt;".repeat((smart_pointer !== null) + (interior_mut !== null));
+
+    let pre = "";
+    if (smart_pointer) pre += `<span class='smart-pointer'>${smart_pointer}</span>&lt;`
+    if (interior_mut) pre += `<span class='interior-mutability'>${interior_mut}</span>&lt;`
+
+    final_type_element.innerHTML = pre + final_type_element.innerHTML + post;
 
     question_element.classList.remove("hidden-full");
     question_element.classList.remove("hidden");
