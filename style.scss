@@ -1,0 +1,82 @@
+/* Montserrat Regular */
+/* Licensed under SIL Open Font License */
+@font-face {
+    font-family: "Montserrat";
+    font-weight: 400;
+    font-style: normal;
+    src: url("Montserrat-Regular.woff2") format("woff2"),
+         url("Montserrat-Regular.woff") format("woff");
+}
+
+.theme-light {
+    $text-color: #212227;
+
+    background-color: #F7F5FB;
+    color: $text-color;
+
+    input[type=text] {
+        border-bottom-color: $text-color;
+    }
+}
+
+.theme-dark {
+    $text-color: #F7F5FB;
+
+    background-color: #212227;
+    color: $text-color;
+
+    input[type=text] {
+        border-bottom-color: $text-color;
+    }
+}
+
+.code {
+    .smart-pointer {
+        color: #507CF6;
+    }
+
+    .interior-mutability {
+        color: #FF1654;
+    }
+
+    .type {
+        color: #28AFB0;
+    }
+}
+
+* {
+    font-family: "Montserrat";
+    font-weight: 400;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.code {
+    font-family: "Fira Mono";
+}
+
+input[type=text] {
+    min-width: 1em;
+
+    border: none;
+    border-bottom: 2px solid;
+    background-color: inherit;
+}
+
+#blinking_cursor {
+    animation: 1s step-end infinite alternate forwards blink;
+    cursor: default;
+    user-select: none;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
