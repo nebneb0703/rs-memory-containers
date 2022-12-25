@@ -10,15 +10,12 @@
   background-color: #F7F7FF;
   color: #212227;
 }
-
 .theme-light input[type=text] {
   border-bottom-color: #212227;
 }
-
 .theme-light button {
   background-color: #dedeff;
 }
-
 .theme-light button:hover {
   background-color: #c4c4ff;
 }
@@ -27,15 +24,12 @@
   background-color: #212227;
   color: #F7F7FF;
 }
-
 .theme-dark input[type=text] {
   border-bottom-color: #F7F7FF;
 }
-
 .theme-dark button {
   background-color: #50525e;
 }
-
 .theme-dark button:hover {
   background-color: #676a7a;
 }
@@ -43,15 +37,12 @@
 .code {
   font-family: "Fira Mono";
 }
-
 .code .smart-pointer {
   color: #507CF6;
 }
-
 .code .interior-mutability {
   color: #FF1654;
 }
-
 .code .type {
   color: #28AFB0;
 }
@@ -103,7 +94,7 @@ button {
   margin: 10vh auto;
 }
 
-#blinking_cursor {
+#blinking-cursor {
   animation: 1s step-end infinite alternate forwards blink;
   cursor: default;
   user-select: none;
@@ -155,7 +146,5 @@ footer {
   right: 8px;
   margin: 8px;
 }
-
-/*# sourceMappingURL=style.css.map */
 
 /*# sourceMappingURL=style.css.map */

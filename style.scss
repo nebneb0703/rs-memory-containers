@@ -119,7 +119,7 @@ button {
     margin: 10vh auto;
 }
 
-#blinking_cursor {
+#blinking-cursor {
     animation: 1s step-end infinite alternate forwards blink;
     cursor: default;
     user-select: none;
