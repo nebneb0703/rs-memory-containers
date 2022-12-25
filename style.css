@@ -6,6 +6,14 @@
   font-style: normal;
   src: url("Montserrat-Regular.woff2") format("woff2"), url("Montserrat-Regular.woff") format("woff");
 }
+/* Montserrat Regular-Italic */
+/* Licensed under SIL Open Font License */
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-style: italic;
+  src: url("Montserrat-Italic.woff2") format("woff2"), url("Montserrat-Italic.woff") format("woff");
+}
 .theme-light {
   background-color: #F7F7FF;
   color: #212227;
@@ -45,13 +53,16 @@
 .code {
   font-family: "Fira Mono";
 }
-.code .smart-pointer {
+
+.smart-pointer {
   color: #507CF6;
 }
-.code .interior-mutability {
+
+.interior-mut {
   color: #FF1654;
 }
-.code .type {
+
+.type {
   color: #28AFB0;
 }
 
@@ -70,7 +81,9 @@ html {
 }
 
 * {
-  font: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
 }
 
 h1 {
@@ -92,6 +105,10 @@ button {
   border-radius: 8px;
   padding: 8px;
   cursor: pointer;
+}
+
+sup {
+  font-size: 0.6em;
 }
 
 #start {
@@ -129,6 +146,11 @@ button {
   width: fit-content;
 }
 
+#final-comments {
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
 #blinking-cursor {
   animation: 1s step-end infinite alternate forwards blink;
   cursor: default;
@@ -158,7 +180,7 @@ button {
 }
 
 .hidden-full {
-  display: none;
+  display: none !important;
 }
 
 .hidden-animated {

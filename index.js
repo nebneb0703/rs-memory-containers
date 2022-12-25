@@ -154,6 +154,96 @@ const questions = [
     },
 ];
 
+const comments = {
+    "Box":
+"<span class='code smart-pointer'>Box</span> \
+(<span class='code'><a href='https://doc.rust-lang.org/std/boxed/struct.Box.html' target='_blank'>std::boxed::<span class='smart-pointer'>\
+Box</span></a></span>) is a <span class='smart-pointer'>smart pointer</span> that provides <em>owned</em> access to the inner data. This \
+type is thread-safe if and only if the inner type is also thread-safe (implements <span class='code'>\
+<a href='https://doc.rust-lang.org/std/marker/trait.Send.html' target='_blank'>Send</a></span> and <span class='code'>\
+<a href='https://doc.rust-lang.org/std/marker/trait.Sync.html' target='_blank'>Sync</a></span>). Immutable access to the data is provided \
+via an immutable borrow of the container. Mutable access to the data is provided via a mutable borrow of the container. Contained data is \
+allocated on the heap.",
+
+    "Arc":
+"<span class='code smart-pointer'>Arc</span> \
+(<span class='code'><a href='https://doc.rust-lang.org/std/sync/struct.Arc.html' target='_blank'>std::sync::<span class='smart-pointer'>\
+Arc</span></a></span>) is a <span class='smart-pointer'>smart pointer</span> \
+that provides <em>immutable shared</em> access to the inner data. This type is thread-safe if and only if the inner type is also \
+thread-safe (implements <span class='code'><a href='https://doc.rust-lang.org/std/marker/trait.Send.html' target='_blank'>Send</a>\
+</span> and <span class='code'><a href='https://doc.rust-lang.org/std/marker/trait.Sync.html' target='_blank'>Sync</a></span>). \
+<span class='code smart-pointer'>Arc</span>s can be cloned freely, and will point to the same data, meaning you <em>own</em> a \
+reference to the inner data. This is useful when you need to share data across threads, since you can only move owned or borrow \
+<span class='code'>'static</span> data between threads. Contained data is allocated on the \
+heap. The data will be dropped when the final <span class='code smart-pointer'>Arc</span> holding a reference to it is dropped.",
+
+    "Rc":
+"<span class='code smart-pointer'>Rc</span> \
+(<span class='code'><a href='https://doc.rust-lang.org/std/rc/struct.Rc.html' target='_blank'>std::rc::<span class='smart-pointer'>\
+Rc</span></a></span>) is a <span class='smart-pointer'>smart pointer</span> \
+that provides <em>immutable shared</em> access to the inner data. This type is <em>not</em> thread-safe (<span class='code'>\
+<a href='https://doc.rust-lang.org/std/marker/trait.Send.html' target='_blank'>!Send</a></span> and <span class='code'>\
+<a href='https://doc.rust-lang.org/std/marker/trait.Sync.html' target='_blank'>!Sync</a></span>). <span class='code smart-pointer'>\
+Rc</span>s can be cloned freely, and will point to the same data, meaning you <em>own</em> a reference to the inner data. This \
+removes lifetime bounds, but adds runtime overhead instead. Contained data is allocated on the \
+heap. The data will be dropped when the final <span class='code smart-pointer'>Rc</span> holding a reference to it is dropped.",
+
+    "Cell":
+"<span class='code interior-mut'>Cell</span> \
+(<span class='code'><a href='https://doc.rust-lang.org/std/cell/struct.Cell.html' target='_blank'>std::cell::<span class='interior-mut'>\
+Cell</span></a></span>) is a memory container that provides <span class='interior-mut'>interior mutability</span>. This type is <em>not</em> \
+thread-safe (<span class='code'><a href='https://doc.rust-lang.org/std/marker/trait.Send.html' target='_blank'>!Send</a></span> and \
+<span class='code'> <a href='https://doc.rust-lang.org/std/marker/trait.Sync.html' target='_blank'>!Sync</a></span>). Data can be moved or \
+copied in and out of the container, but you cannot borrow the inner data. Since <span class='code interior-mut'>Cell</span>s are not thread-safe \
+and do not allow borrowing of the data, they remain safe without the need for additional runtime checks.",
+
+    "RefCell":
+"<span class='code interior-mut'>RefCell</span> \
+(<span class='code'><a href='https://doc.rust-lang.org/std/cell/struct.RefCell.html' target='_blank'>std::cell::<span class='interior-mut'>\
+RefCell</span></a></span>) is a memory container that provides <span class='interior-mut'>interior mutability</span>. This type is <em>not</em> \
+thread-safe (<span class='code'><a href='https://doc.rust-lang.org/std/marker/trait.Send.html' target='_blank'>!Send</a></span> and \
+<span class='code'> <a href='https://doc.rust-lang.org/std/marker/trait.Sync.html' target='_blank'>!Sync</a></span>). Inner data can be \
+borrowed immutably or mutably via only immutable access to the container. Runtime checks are added to enforce standard mutable borrow \
+safety.",
+
+    "Mutex":
+"<span class='code interior-mut'>Mutex</span> \
+(<span class='code'><a href='https://doc.rust-lang.org/std/sync/struct.Mutex.html' target='_blank'>std::sync::<span class='interior-mut'>\
+Mutex</span></a></span>) is a memory container that provides <span class='interior-mut'>interior mutability</span>. This type is \
+thread-safe if and only if the inner type is also thread-safe (implements <span class='code'>\
+<a href='https://doc.rust-lang.org/std/marker/trait.Send.html' target='_blank'>Send</a></span>). Inner data can be borrowed immutably \
+or mutably via only immutable access to the container. Runtime checks are added to enforce standard mutable borrow safety. Only one access \
+is allowed at any given time. You may choose to wait for the lock to be released or immediately error. Consider also <span class='code'>\
+<a href='https://docs.rs/parking_lot/latest/parking_lot/type.Mutex.html' target='_blank'>parking_lot::<span class='interior-mut'>\
+Mutex</span></a></span> which has a slightly different implementation and API, and may also have better performance<sup>(citation needed)\
+</sup>. Additionally consider <span class='code'>\
+<a href='https://docs.rs/tokio/latest/tokio/sync/struct.Mutex.html' target='_blank'>tokio::sync::<span class='interior-mut'>\
+Mutex</span></a></span> or <span class='code'>\
+<a href='https://docs.rs/async-std/latest/async_std/sync/struct.Mutex.html' target='_blank'>async_std::sync::<span class='interior-mut'>\
+Mutex</span></a></span> if you are writing asynchronous code, selecting the version which matches your chosen runtime.",
+
+    "RwLock":
+"<span class='code interior-mut'>RwLock</span> \
+(<span class='code'><a href='https://doc.rust-lang.org/std/sync/struct.RwLock.html' target='_blank'>std::sync::<span class='interior-mut'>\
+RwLock</span></a></span>) is a memory container that provides <span class='interior-mut'>interior mutability</span>. This type is \
+thread-safe if and only if the inner type is also thread-safe (implements <span class='code'>\
+<a href='https://doc.rust-lang.org/std/marker/trait.Send.html' target='_blank'>Send</a></span> and <span class='code'>\
+<a href='https://doc.rust-lang.org/std/marker/trait.Sync.html' target='_blank'>Sync</a></span>). Inner data can be borrowed immutably \
+or mutably via only immutable access to the container. Runtime checks are added to enforce standard mutable borrow safety. Many immutable \
+accesses OR one mutable access is allowed at any given time. You may choose to wait for the lock to be released or immediately error. Consider also <span class='code'>\
+<a href='https://docs.rs/parking_lot/latest/parking_lot/type.RwLock.html' target='_blank'>parking_lot::<span class='interior-mut'>\
+RwLock</span></a></span> which has a slightly different implementation and API, and may also have better performance<sup>(citation needed)\
+</sup>. Additionally consider <span class='code'>\
+<a href='https://docs.rs/tokio/latest/tokio/sync/struct.RwLock.html' target='_blank'>tokio::sync::<span class='interior-mut'>\
+RwLock</span></a></span> or <span class='code'>\
+<a href='https://docs.rs/async-std/latest/async_std/sync/struct.RwLock.html' target='_blank'>async_std::sync::<span class='interior-mut'>\
+RwLock</span></a></span> if you are writing asynchronous code, selecting the version which matches your chosen runtime.",
+
+    "none":
+"All types are allocated on the stack by default, and considered owned. Values can be marked as mutable via a <span class='code'>mut</span> \
+binding or a <span class='code'>&mut</span> borrow."
+};
+
 function button_click(q, i) {
     const question = questions[q];
     const answers_element = document.getElementById("answers");
@@ -260,12 +350,24 @@ function done() {
 
     let pre = "";
     if (smart_pointer) pre += `<span class='smart-pointer'>${smart_pointer}</span>&lt;`
-    if (interior_mut) pre += `<span class='interior-mutability'>${interior_mut}</span>&lt;`
+    if (interior_mut) pre += `<span class='interior-mut'>${interior_mut}</span>&lt;`
 
     final_type_element.innerHTML = pre + final_type_element.innerHTML + post;
 
+    const final_comments_element = document.getElementById("final-comments");
+
+    let comment = "";
+    if (smart_pointer) comment += comments[smart_pointer] ?? "";
+    if (interior_mut) comment += (smart_pointer ? "<br><br>" : "") + (comments[interior_mut] ?? "");
+
+    if (!smart_pointer && !interior_mut) comment = comments["none"];
+
+    final_comments_element.innerHTML = comment;
+
+    document.getElementById("answers").classList.add("hidden-full");
     question_element.classList.remove("hidden-full");
     question_element.classList.remove("hidden");
+    final_comments_element.classList.remove("hidden");
 }
 
 function type_input(e) {

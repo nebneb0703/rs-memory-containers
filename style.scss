@@ -8,11 +8,21 @@
          url("Montserrat-Regular.woff") format("woff");
 }
 
+/* Montserrat Regular-Italic */
+/* Licensed under SIL Open Font License */
+@font-face {
+    font-family: "Montserrat";
+    font-weight: 400;
+    font-style: italic;
+    src: url("Montserrat-Italic.woff2") format("woff2"),
+         url("Montserrat-Italic.woff") format("woff");
+}
+
 $light: #F7F7FF;
 $dark: #212227;
 
 $smart-pointer: #507CF6;
-$interior-mutability: #FF1654;
+$interior-mut: #FF1654;
 $type: #28AFB0;
 
 .theme-light {
@@ -67,18 +77,18 @@ $type: #28AFB0;
 
 .code {
     font-family: "Fira Mono";
+}
 
-    .smart-pointer {
-        color: $smart-pointer;
-    }
+.smart-pointer {
+    color: $smart-pointer;
+}
 
-    .interior-mutability {
-        color: $interior-mutability;
-    }
+.interior-mut {
+    color: $interior-mut;
+}
 
-    .type {
-        color: $type;
-    }
+.type {
+    color: $type;
 }
 
 a {
@@ -97,7 +107,9 @@ html {
 }
 
 * {
-    font: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
 }
 
 h1 {
@@ -120,6 +132,10 @@ button {
     border-radius: 8px;
     padding: 8px;
     cursor: pointer;
+}
+
+sup {
+    font-size: 0.6em;
 }
 
 #start {
@@ -157,6 +173,11 @@ button {
     width: fit-content;
 }
 
+#final-comments {
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
 #blinking-cursor {
     animation: 1s step-end infinite alternate forwards blink;
     cursor: default;
@@ -187,7 +208,7 @@ button {
 }
 
 .hidden-full {
-    display: none;
+    display: none !important;
 }
 
 .hidden-animated {
