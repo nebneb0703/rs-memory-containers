@@ -65,6 +65,8 @@ html {
   font-size: 100%;
   text-align: center;
   box-sizing: border-box;
+  transition: color background-color;
+  transition-duration: 0.2s;
 }
 
 * {
