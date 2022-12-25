@@ -73,6 +73,11 @@ html {
   font: inherit;
 }
 
+h1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 button {
   border: none;
 }
@@ -87,6 +92,10 @@ button {
   border-radius: 8px;
   padding: 8px;
   cursor: pointer;
+}
+
+#start {
+  margin-top: 20px;
 }
 
 #title {
