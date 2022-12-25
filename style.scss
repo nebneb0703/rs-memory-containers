@@ -11,6 +11,10 @@
 $light: #F7F7FF;
 $dark: #212227;
 
+$smart-pointer: #507CF6;
+$interior-mutability: #FF1654;
+$type: #28AFB0;
+
 .theme-light {
     $background-color: $light;
     $text-color: $dark;
@@ -18,17 +22,15 @@ $dark: #212227;
     background-color: $background-color;
     color: $text-color;
 
-    input {
-        &[type=text] {
-            border-bottom-color: $text-color;
-        }
+    input[type=text] {
+        border-bottom-color: $text-color;
+    }
 
-        &[type=button] {
-            background-color: darken($background-color, 5%);
+    button {
+        background-color: darken($background-color, 5%);
 
-            &:hover {
-                background-color: darken($background-color, 10%);
-            }
+        &:hover {
+            background-color: darken($background-color, 10%);
         }
     }
 }
@@ -40,17 +42,15 @@ $dark: #212227;
     background-color: $background-color;
     color: $text-color;
 
-    input{
-        &[type=text] {
-            border-bottom-color: $text-color;
-        }
+    input[type=text] {
+        border-bottom-color: $text-color;
+    }
 
-        &[type=button] {
-            background-color: lighten($background-color, 20%);
+    button {
+        background-color: lighten($background-color, 20%);
 
-            &:hover {
-                background-color: lighten($background-color, 30%);;
-            }
+        &:hover {
+            background-color: lighten($background-color, 30%);;
         }
     }
 }
@@ -59,41 +59,45 @@ $dark: #212227;
     font-family: "Fira Mono";
 
     .smart-pointer {
-        color: #507CF6;
+        color: $smart-pointer;
     }
 
     .interior-mutability {
-        color: #FF1654;
+        color: $interior-mutability;
     }
 
     .type {
-        color: #28AFB0;
+        color: $type;
     }
+}
+
+a {
+    color: $type;
 }
 
 * {
     font-family: "Montserrat";
     font-weight: 400;
-    font-size: xx-large;
+    font-size: 100%;
     text-align: center;
     box-sizing: border-box;
 }
 
-input {
+input, button {
     border: none;
+}
 
-    &[type=text] {
-        min-width: 1em;
+input[type=text] {
+    min-width: 1em;
 
-        border-bottom: 2px solid;
-        background-color: inherit;
-    }
+    border-bottom: 2px solid;
+    background-color: inherit;
+}
 
-    &[type=button] {
-        border-radius: 8px;
-        padding: 8px;
-        cursor: pointer;
-    }
+button {
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
 }
 
 #title {
@@ -102,7 +106,9 @@ input {
 
 #toggle-theme {
     position: absolute;
+    top: 8px;
     right: 8px;
+    margin-top: 8px;
     margin-right: 8px;
     font-size: small;
     text-align: right;
@@ -129,4 +135,40 @@ input {
     100% {
         opacity: 1;
     }
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.hidden-full {
+    display: none;
+}
+
+.hidden-animated {
+    transition-property: opacity visibility;
+    transition-duration: 0.1s;
+    transition-delay: 0 0.1s;
+}
+
+.large-text {
+    font-size: xx-large;
+}
+
+#answers {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: auto;
+    padding: 8px;
+    gap: 8px;
+}
+
+footer {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    margin: 8px;
 }

@@ -12,16 +12,21 @@
 
     <body>
         <span id="toggle-theme" onclick="toggle_theme()">Toggle Theme</span>
-        <h1 id="title">Rust Memory Containers</h1>
+        <h1 id="title" class="large-text">Rust Memory Containers</h1>
 
-        <p id="final-type" class="code">
+        <p id="final-type" class="code large-text">
             <span class="smart-pointer">Arc</span>&lt;<span class="interior-mutability">Mutex</span>&lt;<input id="input" type="text" class="type" value="T" spellcheck="false" size="1">&gt;&gt;<span id="blinking_cursor">_</span>
         </p>
 
-        <input type="button" value="Let's get started!">
+        <button id="start" class="large-text hidden-animated" type="button" onclick="start_questions()">Let's get started!</button>
 
-        <h1 id="Question">Single or Multithreaded?</h1>
+        <h1 id="question" class="hidden hidden-animated large-text">Single or Multithreaded?</h1>
+        <div id="answers" class="hidden hidden-animated large-text"></div>
 
-        <input type="button" value="Single">
+        <footer>
+            Inspired by <a href="https://github.com/usagi/rust-memory-container-cs" target="_blank">Memory Container Cheat-Sheet</a>.
+            <br>
+            Link to <a>GitHub</a>. <!-- todo: -->
+        </footer>
     </body>
 </html>
