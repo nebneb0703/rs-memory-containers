@@ -396,6 +396,6 @@ function copy() {
         document.getElementById("final-type").textContent
     ).then(() => {
         document.getElementById("copy").innerText = "Copied!";
-        setTimeout(() => document.getElementById("copy").innerText = "Copy", 1500);
+        setTimeout(() => document.getElementById("copy").innerText = "Copy!", 1500);
     });
 }

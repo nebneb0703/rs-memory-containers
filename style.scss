@@ -230,10 +230,19 @@ sup {
     gap: 8px;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+main {
+    flex-grow: 1;
+}
+
 footer {
-    position: absolute;
-    bottom: 8px;
-    left: 8px;
-    right: 8px;
-    margin: 8px;
+    margin-top: 20px;
+    margin-bottom: 16px;
 }
