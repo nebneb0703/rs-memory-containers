@@ -267,3 +267,16 @@ function done() {
     question_element.classList.remove("hidden-full");
     question_element.classList.remove("hidden");
 }
+
+function type_input(e) {
+    switch(e.inputType) {
+        case "insertLineBreak":
+        case "insertParagraph":
+            e.preventDefault();
+        break;
+
+        default:
+            console.log(e);
+        break;
+    }
+}

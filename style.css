@@ -51,7 +51,7 @@ a {
   color: #28AFB0;
 }
 
-* {
+html {
   font-family: "Montserrat";
   font-weight: 400;
   font-size: 100%;
@@ -59,11 +59,15 @@ a {
   box-sizing: border-box;
 }
 
-input, button {
+* {
+  font: inherit;
+}
+
+button {
   border: none;
 }
 
-input[type=text] {
+#input {
   min-width: 1em;
   border-bottom: 2px solid;
   background-color: inherit;
@@ -90,8 +94,19 @@ button {
   cursor: pointer;
 }
 
+#type-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin: auto;
+  width: fit-content;
+}
+
 #final-type {
-  margin: 10vh auto;
+  margin: 10vh 0;
+  display: flex;
+  align-items: center;
+  width: fit-content;
 }
 
 #blinking-cursor {
