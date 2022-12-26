@@ -4,8 +4,8 @@
     font-family: "Montserrat";
     font-weight: 400;
     font-style: normal;
-    src: url("Montserrat-Regular.woff2") format("woff2"),
-         url("Montserrat-Regular.woff") format("woff");
+    src: url("fonts/Montserrat-Regular.woff2") format("woff2"),
+         url("fonts/Montserrat-Regular.woff") format("woff");
 }
 
 /* Montserrat Regular-Italic */
@@ -14,8 +14,8 @@
     font-family: "Montserrat";
     font-weight: 400;
     font-style: italic;
-    src: url("Montserrat-Italic.woff2") format("woff2"),
-         url("Montserrat-Italic.woff") format("woff");
+    src: url("fonts/Montserrat-Italic.woff2") format("woff2"),
+         url("fonts/Montserrat-Italic.woff") format("woff");
 }
 
 $light: #F7F7FF;
@@ -48,6 +48,15 @@ $type: #28AFB0;
             background-color: darken($background-color, 10%);
         }
     }
+
+    table th {
+        font-size: 1.2em;
+        background-color: darken($background-color, 5%);
+
+        &,table td {
+            border-color: $text-color;
+        }
+    }
 }
 
 .theme-dark {
@@ -73,6 +82,15 @@ $type: #28AFB0;
             background-color: lighten($background-color, 30%);;
         }
     }
+
+    table th {
+        font-size: 1.2em;
+        background-color: lighten($background-color, 20%);
+
+        &,table td {
+            border-color: $text-color;
+        }
+    }
 }
 
 .code {
@@ -93,6 +111,11 @@ $type: #28AFB0;
 
 a {
     color: $type;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 html {
@@ -152,7 +175,7 @@ sup {
     right: 8px;
     margin-top: 8px;
     margin-right: 8px;
-    font-size: small;
+    font-size: 0.8em;
     text-align: right;
     cursor: pointer;
 }
@@ -218,7 +241,7 @@ sup {
 }
 
 .large-text {
-    font-size: xx-large;
+    font-size: 2em;
 }
 
 #answers {
@@ -246,4 +269,45 @@ main {
 footer {
     margin-top: 20px;
     margin-bottom: 16px;
+}
+
+#comments-list {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    gap: 5vw;
+    @media (max-width: 1000px) {
+        flex-direction: column;
+        gap: 32px;
+    }
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+#summary-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vw;
+}
+
+table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+
+    td, th {
+        border-width: 2px;
+        border-style: solid;
+        padding: 8px;
+    }
+
+    .no-border {
+        border: none;
+    }
+}
+
+.scroll-horizontal {
+    overflow-x: scroll;
+    width: 100vw;
 }

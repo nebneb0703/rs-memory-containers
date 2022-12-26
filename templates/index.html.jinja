@@ -1,0 +1,19 @@
+{% extends "base.html.jinja" %}
+
+{% block title %}Rust Memory Containers{% endblock title %}
+
+{% block content %}
+    <p id="type-container">
+        <span id="final-type" class="code large-text"><span id="input" class="type" contenteditable="true" spellcheck="false">T</span></span><span id="blinking-cursor" class="code large-text">_</span>
+        <button id="copy" onclick="copy()">Copy!</button>
+    </p>
+
+    <script>document.getElementById("input").addEventListener("beforeinput", type_input, true);</script>
+
+    <button id="start" class="large-text hidden-animated" type="button" onclick="start_questions()">Let's get started!</button>
+
+    <h1 id="question" class="hidden hidden-animated large-text"></h1>
+    <div id="answers" class="hidden hidden-animated large-text"></div>
+
+    <p id="final-comments" class="hidden hidden-animated"></p>
+{% endblock content %}

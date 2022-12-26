@@ -399,3 +399,24 @@ function copy() {
         setTimeout(() => document.getElementById("copy").innerText = "Copy!", 1500);
     });
 }
+
+const paragraphs = [];
+
+function list_comments() {
+    const smart_pointer_container = document.getElementById("smart-pointer-comments");
+    const interior_mut_container = document.getElementById("interior-mut-comments");
+
+    const smart_pointers = ["Arc", "Rc", "Box"];
+    const interior_muts = ["Cell", "RefCell", "Mutex", "RwLock"];
+
+    for (const [type, comment] of Object.entries(comments)) {
+        const p = document.createElement("p");
+
+        p.innerHTML = comment;
+
+        if (smart_pointers.includes(type))
+            smart_pointer_container.append(p);
+        else if (interior_muts.includes(type)) // Probably unnecessary but doesn't hurt
+            interior_mut_container.append(p);
+    };
+}

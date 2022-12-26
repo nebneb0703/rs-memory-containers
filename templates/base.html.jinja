@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class="theme-light">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{% block title %}{% endblock title %}</title>
+
+        <script src="main.js"></script>
+
+        <!-- Licensed under SIL Open Font License -->
+        <link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css">
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="icon" href="favicon.ico">
+    </head>
+
+    <body>
+        <main>
+            <span id="toggle-theme" onclick="toggle_theme()">Toggle Theme</span>
+            <h1 id="title" class="large-text">Rust Memory Containers</h1>
+
+            {% block content %}{% endblock content %}
+        </main>
+        <footer>
+            Inspired by <a href="https://github.com/usagi/rust-memory-container-cs" target="_blank">Memory Container Cheat-Sheet</a>.
+            <br>
+            Link to <a href="https://github.com/nebneb0703/rs-memory-containers">GitHub</a>.
+        </footer>
+    </body>
+</html>

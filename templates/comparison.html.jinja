@@ -1,0 +1,87 @@
+{% extends "base.html.jinja" %}
+
+{% block title %}Rust Memory Containers - Comparison{% endblock title %}
+
+{% block content %}
+<div id="summary-container">
+    <div>
+        <h1 class="large-text smart-pointer">Smart Pointers</h1>
+
+        <div class="scroll-horizontal">
+            <table>
+                <tr>
+                    <td class="no-border"></td>
+                    <th scope="col"><span class="code smart-pointer">Box</span></th>
+                    <th scope="col"><span class="code smart-pointer">Rc</span></th>
+                    <th scope="col"><span class="code smart-pointer">Arc</span></th>
+                </tr>
+
+                <tr>
+                    <th scope="row">Link to Docs</th>
+                    <td><span class='code'><a href='https://doc.rust-lang.org/std/boxed/struct.Box.html' target='_blank'>std::boxed::<span class='smart-pointer'>Box</span></a></span></td>
+                    <td><span class='code'><a href='https://doc.rust-lang.org/std/rc/struct.Rc.html' target='_blank'>std::rc::<span class='smart-pointer'>Rc</span></a></span></td>
+                    <td><span class='code'><a href='https://doc.rust-lang.org/std/sync/struct.Arc.html' target='_blank'>std::sync::<span class='smart-pointer'>Arc</span></a></span></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Ownership</th>
+                    <td>Owned</td>
+                    <td>Shared</td>
+                    <td>Shared</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Access to inner data</th>
+                    <td>
+                        Extract via <span class="code"><a href="https://doc.rust-lang.org/std/ops/trait.Deref.html" target='_blank'>Deref</a></span><br>
+                        Immutable via immutable borrow<br>
+                        Mutable via mutable borrow<br>
+                    </td>
+                    <td>Immutable via immutable borrow</td>
+                    <td>Immutable via immutable borrow</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Thread-Safety</th>
+                    <td>
+                        <span class='code'><a href='https://doc.rust-lang.org/std/marker/trait.Send.html' target='_blank'>Send</a></span>
+                        if <span class='code'><a href='https://doc.rust-lang.org/std/marker/trait.Send.html' target='_blank'>Send</a></span>
+                        <br>
+                        <span class='code'><a href='https://doc.rust-lang.org/std/marker/trait.Sync.html' target='_blank'>Sync</a></span>
+                        if <span class='code'><a href='https://doc.rust-lang.org/std/marker/trait.Sync.html' target='_blank'>Sync</a></span>
+                    </td>
+                    <td>
+                        <span class='code'>!<a href='https://doc.rust-lang.org/std/marker/trait.Send.html' target='_blank'>Send</a></span>
+                        and
+                        <span class='code'>!<a href='https://doc.rust-lang.org/std/marker/trait.Sync.html' target='_blank'>Sync</a></span>
+                    </td>
+                    <td>
+                        <span class='code'><a href='https://doc.rust-lang.org/std/marker/trait.Send.html' target='_blank'>Send</a></span>
+                        and <span class='code'><a href='https://doc.rust-lang.org/std/marker/trait.Sync.html' target='_blank'>Sync</a></span>
+                        if <span class='code'><a href='https://doc.rust-lang.org/std/marker/trait.Send.html' target='_blank'>Send</a></span>
+                        <span class='code'>+</span>
+                        <a href='https://doc.rust-lang.org/std/marker/trait.Sync.html' target='_blank'>Sync</a>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div>
+        <h1 class="large-text interior-mut">Interior Mutability</h1>
+
+        <div class="scroll-horizontal">
+            <table>
+                <tr>
+                    <td class="no-border"></td>
+                    <th scope="col"><span class="code interior-mut">Cell</span></th>
+                    <th scope="col"><span class="code interior-mut">RefCell</span></th>
+                    <th scope="col"><span class="code interior-mut">Mutex</span></th>
+                    <th scope="col"><span class="code interior-mut">RwLock</span></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}
