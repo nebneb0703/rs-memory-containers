@@ -49,8 +49,8 @@ const questions = [
             },
             {
                 text: "Shared",
-                hint: "This container can share a single instance of your data in multiple locations. The lifetime of "
-                    + "your data is managed internally.",
+                hint: "This container can share the ownership of a single instance of your data in multiple locations. "
+                    + "The lifetime of the data is managed internally.",
                 select: () => selected_choices["shared"] = true,
             },
         ],
@@ -168,8 +168,8 @@ allocated on the heap.",
     "Arc":
 "<span class='code smart-pointer'>Arc</span> \
 (<span class='code'><a href='https://doc.rust-lang.org/std/sync/struct.Arc.html' target='_blank'>std::sync::<span class='smart-pointer'>\
-Arc</span></a></span>) is a <span class='smart-pointer'>smart pointer</span> \
-that provides <em>immutable shared</em> access to the inner data. This type is thread-safe if and only if the inner type is also \
+Arc</span></a></span>) is a <span class='smart-pointer'>smart pointer</span> with <em>shared</em> ownership of the inner data, and \
+provides <em>immutable</em> access to the data. This type is thread-safe if and only if the inner type is also \
 thread-safe (implements <span class='code'><a href='https://doc.rust-lang.org/std/marker/trait.Send.html' target='_blank'>Send</a>\
 </span> and <span class='code'><a href='https://doc.rust-lang.org/std/marker/trait.Sync.html' target='_blank'>Sync</a></span>). \
 <span class='code smart-pointer'>Arc</span>s can be cloned freely, and will point to the same data, meaning you <em>own</em> a \
@@ -180,10 +180,10 @@ heap. The data will be dropped when the final <span class='code smart-pointer'>A
     "Rc":
 "<span class='code smart-pointer'>Rc</span> \
 (<span class='code'><a href='https://doc.rust-lang.org/std/rc/struct.Rc.html' target='_blank'>std::rc::<span class='smart-pointer'>\
-Rc</span></a></span>) is a <span class='smart-pointer'>smart pointer</span> \
-that provides <em>immutable shared</em> access to the inner data. This type is <em>not</em> thread-safe (<span class='code'>\
-<a href='https://doc.rust-lang.org/std/marker/trait.Send.html' target='_blank'>!Send</a></span> and <span class='code'>\
-<a href='https://doc.rust-lang.org/std/marker/trait.Sync.html' target='_blank'>!Sync</a></span>). <span class='code smart-pointer'>\
+Rc</span></a></span>) is a <span class='smart-pointer'>smart pointer</span> with <em>shared</em> ownership of the inner data, and \
+provides <em>immutable</em> access to the data. This type is <em>not</em> thread-safe (<span class='code'>!\
+<a href='https://doc.rust-lang.org/std/marker/trait.Send.html' target='_blank'>Send</a></span> and <span class='code'>!\
+<a href='https://doc.rust-lang.org/std/marker/trait.Sync.html' target='_blank'>Sync</a></span>). <span class='code smart-pointer'>\
 Rc</span>s can be cloned freely, and will point to the same data, meaning you <em>own</em> a reference to the inner data. This \
 removes lifetime bounds, but adds runtime overhead instead. Contained data is allocated on the \
 heap. The data will be dropped when the final <span class='code smart-pointer'>Rc</span> holding a reference to it is dropped.",
@@ -192,8 +192,8 @@ heap. The data will be dropped when the final <span class='code smart-pointer'>R
 "<span class='code interior-mut'>Cell</span> \
 (<span class='code'><a href='https://doc.rust-lang.org/std/cell/struct.Cell.html' target='_blank'>std::cell::<span class='interior-mut'>\
 Cell</span></a></span>) is a memory container that provides <span class='interior-mut'>interior mutability</span>. This type is <em>not</em> \
-thread-safe (<span class='code'><a href='https://doc.rust-lang.org/std/marker/trait.Send.html' target='_blank'>!Send</a></span> and \
-<span class='code'> <a href='https://doc.rust-lang.org/std/marker/trait.Sync.html' target='_blank'>!Sync</a></span>). Data can be moved or \
+thread-safe (<span class='code'>!<a href='https://doc.rust-lang.org/std/marker/trait.Send.html' target='_blank'>Send</a></span> and \
+<span class='code'>!<a href='https://doc.rust-lang.org/std/marker/trait.Sync.html' target='_blank'>Sync</a></span>). Data can be moved or \
 copied in and out of the container, but you cannot borrow the inner data. Since <span class='code interior-mut'>Cell</span>s are not thread-safe \
 and do not allow borrowing of the data, they remain safe without the need for additional runtime checks.",
 
@@ -201,8 +201,8 @@ and do not allow borrowing of the data, they remain safe without the need for ad
 "<span class='code interior-mut'>RefCell</span> \
 (<span class='code'><a href='https://doc.rust-lang.org/std/cell/struct.RefCell.html' target='_blank'>std::cell::<span class='interior-mut'>\
 RefCell</span></a></span>) is a memory container that provides <span class='interior-mut'>interior mutability</span>. This type is <em>not</em> \
-thread-safe (<span class='code'><a href='https://doc.rust-lang.org/std/marker/trait.Send.html' target='_blank'>!Send</a></span> and \
-<span class='code'> <a href='https://doc.rust-lang.org/std/marker/trait.Sync.html' target='_blank'>!Sync</a></span>). Inner data can be \
+thread-safe (<span class='code'>!<a href='https://doc.rust-lang.org/std/marker/trait.Send.html' target='_blank'>Send</a></span> and \
+<span class='code'>!<a href='https://doc.rust-lang.org/std/marker/trait.Sync.html' target='_blank'>Sync</a></span>). Inner data can be \
 borrowed immutably or mutably via only immutable access to the container. Runtime checks are added to enforce standard mutable borrow \
 safety.",
 
