@@ -15,5 +15,14 @@
     <h1 id="question" class="hidden hidden-animated large-text"></h1>
     <div id="answers" class="hidden hidden-animated large-text"></div>
 
-    <p id="final-comments" class="hidden hidden-animated"></p>
+    <div id="final-comments" class="hidden hidden-animated">
+        <p id="box-comment" class="hidden-full">{% include "comments/box.html.jinja" %}</p>
+        <p id="rc-comment" class="hidden-full">{% include "comments/rc.html.jinja" %}</p>
+        <p id="arc-comment" class="hidden-full">{% include "comments/arc.html.jinja" %}</p>
+        <p id="cell-comment" class="hidden-full">{% include "comments/cell.html.jinja" %}</p>
+        <p id="refcell-comment" class="hidden-full">{% include "comments/refcell.html.jinja" %}</p>
+        <p id="mutex-comment" class="hidden-full">{% include "comments/mutex.html.jinja" %}</p>
+        <p id="rwlock-comment" class="hidden-full">{% include "comments/rwlock.html.jinja" %}</p>
+        <p id="none-comment" class="hidden-full">{% include "comments/none.html.jinja" %}</p>
+    </div>
 {% endblock content %}

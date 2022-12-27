@@ -6,11 +6,19 @@
 <div id="comments-list">
     <div id="smart-pointer-comments">
         <h1 class="large-text smart-pointer">Smart Pointers</h1>
+
+        <p>{% include "comments/box.html.jinja" %}</p>
+        <p>{% include "comments/rc.html.jinja" %}</p>
+        <p>{% include "comments/arc.html.jinja" %}</p>
     </div>
 
     <div id="interior-mut-comments">
         <h1 class="large-text interior-mut">Interior Mutability</h1>
+
+        <p>{% include "comments/cell.html.jinja" %}</p>
+        <p>{% include "comments/refcell.html.jinja" %}</p>
+        <p>{% include "comments/mutex.html.jinja" %}</p>
+        <p>{% include "comments/rwlock.html.jinja" %}</p>
     </div>
 </div>
-<script>list_comments()</script>
 {% endblock content %}

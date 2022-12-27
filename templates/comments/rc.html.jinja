@@ -1,0 +1,11 @@
+{% from "_macros.html.jinja" import link, send_trait, sync_trait -%}
+
+<span class='code smart-pointer'>Rc</span>
+({% call link('https://doc.rust-lang.org/std/rc/struct.Rc.html', 'code') -%}
+    std::rc::<span class='smart-pointer'>Rc</span>
+{%- endcall %}) is a <span class='smart-pointer'>smart pointer</span> with <em>shared</em> ownership of the inner data, and
+provides <em>immutable</em> access to the data. This type is <em>not</em> thread-safe
+({{ send_trait(true) }} and {{ sync_trait(true) }}). <span class='code smart-pointer'>Rc</span>s can be cloned freely, and
+will point to the same data, meaning you <em>own</em> a reference to the inner data. This removes lifetime bounds, but adds
+runtime overhead instead. Contained data is allocated on the heap. The data will be dropped when the final
+<span class='code smart-pointer'>Rc</span> holding a reference to it is dropped.

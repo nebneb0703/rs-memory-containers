@@ -1,0 +1,14 @@
+{% from "_macros.html.jinja" import link, send_trait, sync_trait -%}
+
+<span class='code smart-pointer'>Arc</span>
+({% call link('https://doc.rust-lang.org/std/sync/struct.Arc.html', 'code') -%}
+    std::sync::<span class='smart-pointer'>Arc</span>
+{%- endcall%})
+is a <span class='smart-pointer'>smart pointer</span> with <em>shared</em> ownership of the inner data, and provides
+<em>immutable</em> access to the data. This type is thread-safe if and only if the inner type is also
+thread-safe (implements {{ send_trait() }} and {{ sync_trait() }}).
+<span class='code smart-pointer'>Arc</span>s can be cloned freely, and will point to the same data, meaning you <em>own</em>
+a reference to the inner data. This removes lifetime bounds, but adds runtime overhead instead. This is useful when you need
+to share data across threads, since you can only move owned or borrow <span class='code'>'static</span> data between threads.
+Contained data is allocated on the heap. The data will be dropped when the final <span class='code smart-pointer'>Arc</span>
+holding a reference to it is dropped.

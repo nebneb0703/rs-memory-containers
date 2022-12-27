@@ -1,3 +1,5 @@
+{% from "_macros.html.jinja" import link %}
+
 <!DOCTYPE html>
 <html class="theme-light">
     <head>
@@ -23,9 +25,15 @@
             {% block content %}{% endblock content %}
         </main>
         <footer>
-            Inspired by <a href="https://github.com/usagi/rust-memory-container-cs" target="_blank">Memory Container Cheat-Sheet</a>.
+            Inspired by
+            {% call link("https://github.com/usagi/rust-memory-container-cs") %}
+                Memory Container Cheat-Sheet
+            {% endcall %}
             <br>
-            Link to <a href="https://github.com/nebneb0703/rs-memory-containers">GitHub</a>.
+            Link to
+            {% call link("https://github.com/nebneb0703/rs-memory-containers") %}
+            GitHub
+            {% endcall %}
         </footer>
     </body>
 </html>

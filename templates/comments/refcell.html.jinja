@@ -1,0 +1,9 @@
+{% from "_macros.html.jinja" import link, send_trait, sync_trait -%}
+
+<span class='code interior-mut'>RefCell</span>
+({% call link('https://doc.rust-lang.org/std/cell/struct.RefCell.html', 'code') -%}
+    std::cell::<span class='interior-mut'>RefCell</span>
+{%- endcall %}) is a memory container that provides <span class='interior-mut'>interior mutability</span>. This type is <em>not</em>
+thread-safe ({{ send_trait(true) }} and {{ sync_trait(true) }}). Inner data can be borrowed immutably or mutably via only immutable
+access to the container. Runtime checks are added to enforce standard mutable borrow safety. Many immutable accesses OR one mutable
+access is allowed at any given time.

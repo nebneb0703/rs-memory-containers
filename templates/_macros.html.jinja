@@ -1,0 +1,17 @@
+{% macro link(link, classes='') -%}
+    <a href="{{ link }}" target="_blank" class="{{ classes }}">{{ caller() }}</a>
+{%- endmacro %}
+
+{% macro send_trait(unimpl=false) -%}
+    {% if unimpl %}!{% endif -%}
+    {% call link("https://doc.rust-lang.org/std/marker/trait.Send.html", 'code') -%}
+        Send
+    {%- endcall %}
+{%- endmacro %}
+
+{% macro sync_trait(unimpl=false) -%}
+    {% if unimpl %}!{% endif -%}
+    {% call link("https://doc.rust-lang.org/std/marker/trait.Sync.html", 'code') -%}
+        Sync
+    {%- endcall %}
+{%- endmacro %}

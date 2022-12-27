@@ -1,0 +1,19 @@
+{% from "_macros.html.jinja" import link, send_trait, sync_trait -%}
+
+<span class='code interior-mut'>RwLock</span>
+({% call link('https://doc.rust-lang.org/std/sync/struct.RwLock.html', 'code') -%}
+    std::sync::<span class='interior-mut'>RwLock</span>
+{%- endcall %}) is a memory container that provides <span class='interior-mut'>interior mutability</span>. This type is
+thread-safe if and only if the inner type is also thread-safe (implements {{ send_trait() }} and {{ sync_trait() }}).
+Inner data can be borrowed immutably or mutably via only immutable access to the container. Runtime checks are added to
+enforce standard mutable borrow safety. Many immutable accesses OR one mutable access is allowed at any given time. You
+may choose to wait for the lock to be released or immediately error. Consider also
+{% call link('https://docs.rs/parking_lot/latest/parking_lot/type.RwLock.html', 'code') -%}
+    parking_lot::<span class='interior-mut'>RwLock</span>
+{%- endcall %} which has a slightly different implementation and API, and may also have better performance
+<sup>(citation needed)</sup>. Additionally consider
+{% call link('https://docs.rs/tokio/latest/tokio/sync/struct.RwLock.html', 'code') -%}
+    tokio::sync::<span class='interior-mut'>RwLock</span>
+{%- endcall %} or {% call link('https://docs.rs/async-std/latest/async_std/sync/struct.RwLock.html', 'code') -%}
+    async_std::sync::<span class='interior-mut'>RwLock</span>
+{%- endcall %} if you are writing asynchronous code, selecting the version which matches your chosen runtime.

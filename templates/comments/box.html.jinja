@@ -1,0 +1,9 @@
+{% from "_macros.html.jinja" import link, send_trait, sync_trait -%}
+
+<span class='code smart-pointer'>Box</span>
+({% call link('https://doc.rust-lang.org/std/boxed/struct.Box.html', 'code') -%}
+    std::boxed::<span class='smart-pointer'>Box</span>
+{%- endcall %}) is an <em>owned</em> <span class='smart-pointer'>smart pointer</span>. This type is thread-safe if and only
+if the inner type is also thread-safe (implements {{ send_trait() }} and {{ sync_trait() }}). Immutable access to the data is
+provided via an immutable borrow of the container. Mutable access to the data is provided viaa mutable borrow of the container.
+Contained data is allocated on the heap.
